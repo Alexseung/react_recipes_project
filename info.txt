@@ -1,0 +1,22 @@
+https://developer.edamam.com/edamam-docs-recipe-api
+
+Documentation
+
+
+Application ID
+01bfaed3
+
+This is the application ID, you should send with each API request.
+
+Application Keys
+f76a8dd1feb49872198a8499513ec02a	—
+These are application keys used to authenticate requests.
+
+Properties
+State:	live
+Plan
+Developer
+
+To extend your limits please contact us.
+
+API Alerts
