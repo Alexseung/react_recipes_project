@@ -7,4 +7,7 @@ export default {
   trailingSlash: false,
   poweredByHeader: false,
   outputFileTracing: true,
+  images: {
+    domains: ['edamam-product-images.s3.amazonaws.com'],
+  },
 };

@@ -6,7 +6,7 @@ export default function () {
     router.push(path);
   };
   return (
-    <div className='font-bold h-10 bg-gray-300 flex justify-center rounded-none pt-2'>
+    <div className='font-bold h-20 bg-khaki flex justify-center rounded-none pt-7'>
       <span onClick={navigate('/')} className='cursor-pointer px-6'>
         Home
       </span>

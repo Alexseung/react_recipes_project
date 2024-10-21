@@ -13,6 +13,9 @@ export default {
       height: {
         'full-screen': '100vw',
       },
+      colors: {
+        khaki: 'rgb(231 222 190 / <alpha-value>)',
+      },
     },
   },
   plugins: [],
