@@ -3,8 +3,8 @@ import React from 'react';
 export default function () {
   return (
     <>
-      <div className='w-full-screen h-rem-32 bg-blue-200 flex border-2 border-red-600'>
-        <div className='border-2 border-black w-full-screen h-full flex items-center justify-between px-80 font-bold'>
+      <div className='w-full-screen h-rem-32 bg-blue-200 flex m-0 p-0'>
+        <div className='border-2 w-full-screen h-full flex items-center justify-between px-80 font-bold'>
           <div className='text-6xl text-blue-900'>
             <div>Easy meal kits.</div>
             <div>Quality ingredients.</div>

@@ -22,21 +22,21 @@ export default function ({label, dishType, ingredients, image}) {
         variant='outline'
       >
         {loading && (
+          <div className='w-60 h-60'>
+
           <Spinner
-            width={200}
-            height={80}
             speed='0.65s'
-            color='blue.500'
+            color='blue.300'
             m='auto'
-          />
+            size='xl'
+            />
+            </div>
         )}
-        <Image
-          objectFit='cover'
-          width={280}
-          height={80}
+        <img
           src={image}
           alt={label}
-          onLoadingComplete={() => setLoading(false)}
+          onLoad={() => setLoading(false)}
+          className='my-1 w-60 h-60'
         />
 
         <Stack>
