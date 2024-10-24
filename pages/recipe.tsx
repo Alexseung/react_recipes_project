@@ -18,19 +18,29 @@ export default function RecipeList() {
   const [dietArray, setDietArray] = useState<string[]>([]);
 
   useEffect(() => {
+
+    
     const fetchAPIKeys = async () => {
       try {
-        const response = await fetch(
-          'http://localhost:3333/cloud/yoon/recipeAPI'
-        );
-        if (!response.ok) {
-          throw new Error('API 키를 가져오는 데 실패했습니다.');
-        }
-        const data = await response.json();
-        console.log(data);
 
-        // 서버리스로 올린 api id, key 가져옴
-        const {API_ID, API_KEY} = data.datas;
+        ////////////////serverless 로 올린 api 정보를 활용
+        // const response = await fetch(
+        //   'http://localhost:3333/cloud/yoon/recipeAPI'
+        // );
+        // if (!response.ok) {
+        //   throw new Error('API 키를 가져오는 데 실패했습니다.');
+        // }
+        // const data = await response.json();
+        // console.log(data);
+
+        // // 서버리스로 올린 api id, key 가져옴
+        // const {API_ID, API_KEY} = data.datas;
+
+
+
+        ////////////////
+        const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+        const API_ID = process.env.NEXT_PUBLIC_API_ID;
 
         const ingredientQuery = searchIngredient
           ? `&q=${searchIngredient}`
@@ -51,11 +61,23 @@ export default function RecipeList() {
         if (!recipesResponse.ok) {
           throw new Error('레시피를 가져오는 데 실패했습니다.');
         }
+      // fetch가 처음 불릴때  ${ingredientQuery}${dietQueries} 이 값이 없기에 배열에 아무것도 없다고 판단해서 error를 넣는건데 이걸 if로 감싸서
+      // ${ingredientQuery}${dietQueries} 가 있는 상태에서만 동작하도록 만들어주기
+      // 전체를 if로 감싸지는 않았고 fetch를 실행해야하는 최소한의 조검. '검색값' 이 없으면 동작 안 하도록 만들어주었다
+      // 검색값을 나타내는 ingredientQuery 의 값이 없다면 즉, falsy라면 return으로 바로 종료되게끔
+        if(!ingredientQuery) {
+          return;
+        }
 
         const recipesData = await recipesResponse.json();
         console.log(recipesData);
         const recipeList = recipesData.hits.map(item => item.recipe);
         setRecipes(recipeList);
+        if (recipeList.length === 0) {
+          setError('Sorry, there were no results for your search. Try again!');
+        } else {
+          setError(null); // 이전 에러 상태 초기화
+        }
       } catch (err) {
         console.error(err);
         setError(err.message);
@@ -64,6 +86,11 @@ export default function RecipeList() {
 
     fetchAPIKeys();
   }, [searchIngredient, dietArray]); // 검색어 즉, searchIngredient가 변경되면 호출
+
+
+
+
+  
 
   const handleSearch = () => {
     setSearchIngredient(ingredient);
@@ -83,8 +110,8 @@ export default function RecipeList() {
   const [activeBtn, setActiveBtn] = useState(0);
 
   return (
-    <div>
-      {error && <p>오류: {error}</p>}
+    <div className='px-2'>
+      {/* {error ? <p>오류: {error}</p> : null} */}
       {/* {recipes.length == 0 && <p>Sorry, there were no results for your search. Try again!</p>} */}
       <div className='flex justify-center'>
         <input
@@ -122,34 +149,23 @@ export default function RecipeList() {
         />
       </div>
 
-      {/* 선택된 버튼 활성화 코드 */}
 
-      {activeBtn === 1 && <div>1번 nutrition 버튼</div>}
-      {activeBtn === 2 && <div>2번 allergies 버튼</div>}
-      {activeBtn === 3 && <div>3번 vegetarian 버튼</div>}
 
-      {/* 검색 결과 창, All 버튼 활성화 확인 */}
-      {activeBtn === 0 && (
-        <div>
-          {/* <div>0번 All</div> */}
-          {recipes.length > 0 ? (
-            recipes.map((recipe, index) => (
-              <ShowSearchRecipe
-                key={index}
-                label={recipe.label}
-                ingredients={Object.keys(recipe.ingredients).map(key => (
-                  <li key={key}>{recipe.ingredients[key].text}</li>
-                ))}
-                // Object.keys(객체이름); ==> console.log(Object.keys(객체이름))  ==> '['키','여기에','나옴']'
-                dishType={recipe.dishType}
-                image={recipe.image}
-              />
-            ))
-          ) : (
-            <p>Sorry, there were no results for your search. Try again!</p>
-          )}
-        </div>
-      )}
+      <div>
+      {/* 레시피 목록 표시 */}
+      { error ? <p>Error: {error}</p> : (
+      recipes.map((recipe, index) => (
+        <ShowSearchRecipe
+          key={index}
+          label={recipe.label}
+          ingredients={Object.keys(recipe.ingredients).map(key => (
+            <li key={key}>{recipe.ingredients[key].text}</li>
+          ))}
+          dishType={recipe.dishType}
+          image={recipe.image}
+        />)
+      ))}
+    </div>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 // <Suspense>  태그로 감싼 곳은 비동기로 동작이됨
 // <Suspence fallback={<div>대체태그</div>}> 이렇게 로딩되는동안은 태체태그를 보여줌
 import React, {Suspense, useState} from 'react';
-import Image from 'next/image';
 import {
   Card,
   Heading,
@@ -20,6 +19,7 @@ export default function ({label, dishType, ingredients, image}) {
         direction={{base: 'column', sm: 'row'}}
         overflow='hidden'
         variant='outline'
+        className='my-2'
       >
         {loading && (
           <div className='w-60 h-60'>
@@ -36,7 +36,7 @@ export default function ({label, dishType, ingredients, image}) {
           src={image}
           alt={label}
           onLoad={() => setLoading(false)}
-          className='my-1 w-60 h-60'
+          className='w-60 h-60 rounded-md'
         />
 
         <Stack>
@@ -46,7 +46,7 @@ export default function ({label, dishType, ingredients, image}) {
             <Text py='2' fontSize='lg'>
               {ingredients}
             </Text>
-            <Text fontSize=''>{dishType}</Text>
+            <Text fontSize='xl'>{dishType}</Text>
           </CardBody>
 
           <CardFooter>
