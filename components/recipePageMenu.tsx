@@ -16,7 +16,16 @@ export default function ({
   setIsHighFiber,
   isHighProtein,
   setIsHighProtein,
+  // toggle,
+  // setToggle
 }) {
+
+  // const checkboxToggle = ()=>{
+  //   setToggle(!toggle)
+  // }
+
+
+
   const handleLowCarb = () => {
     const newValue = !isLowCarb;
     setIsLowCarb(newValue);
@@ -104,6 +113,9 @@ export default function ({
         />
         low-sodium
         <br />
+        {/* <input type='checkbox' checked={toggle} onChange={checkboxToggle} />
+        balanced
+        <input */}
         <input type='checkbox' checked={isBalanced} onChange={handleBalanced} />
         balanced
         <input

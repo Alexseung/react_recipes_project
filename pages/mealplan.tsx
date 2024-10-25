@@ -98,7 +98,7 @@ export default function MealPlanMenu() {
 
   return (
     <div className='px-2'>
-      <div className='flex justify-center'>
+      <div className='flex justify-center mt-10'>
         {/* MealType으로 분류 */}
         <Menu>
           <MenuButton as={Button} variant="outline" size="md" className='mx-2'>

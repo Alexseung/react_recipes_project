@@ -4,6 +4,8 @@ import type {AppProps} from 'next/app';
 import Banner from '../components/banner';
 import { ChakraProvider } from '@chakra-ui/react'
 import Footer from '../components/footer'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 export default ({Component, pageProps}: AppProps) => {

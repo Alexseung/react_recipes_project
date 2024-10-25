@@ -1,5 +1,5 @@
 import React from 'react';
-import MainBodyCard from '../components/mainBodyCard';
+import MainWhyPlanEats from '../components/mainWhyPlanEats';
 
 export function getServerSide() {
   return {
@@ -12,7 +12,7 @@ export function getServerSide() {
 export default function () {
   return (
     <>
-      <MainBodyCard/>
+      <MainWhyPlanEats/>
     </>
   );
 }
