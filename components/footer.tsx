@@ -3,8 +3,8 @@ import { HStack, VStack, Box } from "@chakra-ui/react";
 
 export default function(){
     return <>
-        <HStack className="flex justify-center h-80 border border-green-900 my-16">
-            <div className='w-60 h-full border border-red-500 mt-16'>
+        <HStack className="flex justify-center h-80 bg-blue-300 mt-16">
+            <div className='w-60 h-full pt-4'>
                 <VStack>
                     <div>recipe</div>
                     <div>subscription</div>
@@ -12,7 +12,7 @@ export default function(){
                     <div>reviews</div>
                 </VStack>
             </div>
-            <div className='w-60 h-full border border-red-500 mt-16 mx-52'>
+            <div className='w-60 h-full pt-4 mx-52'>
             <VStack>
                     <div>FAQ</div>
                     <div>Help Center</div>
@@ -23,7 +23,7 @@ export default function(){
                     <div>(646) 891-4349</div>
                 </VStack>
             </div>
-            <div className='w-60 h-full border border-red-500 mt-16'>
+            <div className='w-60 h-full pt-4'>
             <VStack>
                     <div>1</div>
                     <div>2</div>

@@ -11,6 +11,7 @@ import ShowSearchRecipe from '../components/showSearchRecipe';
 export default function MealPlanMenu() {
   const [mealType, setMealType] = useState('')
   const [dishType, setDishType] = useState('')
+  const [health, setHealth] = useState('')
 
   // fetch
 
@@ -28,13 +29,14 @@ export default function MealPlanMenu() {
 
         const mealTypeQuery = mealType ? `&mealType=${mealType}` : '';
         const dishTypeQuery = dishType ? `&dishType=${dishType}` : '';
+        const healthQuery = health ? `&health=${health}` : '';
 
-        const url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${API_ID}&app_key=${API_KEY}${mealTypeQuery}${dishTypeQuery}`;
+        const url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${API_ID}&app_key=${API_KEY}${mealTypeQuery}${dishTypeQuery}${healthQuery}`;
         const recipesResponse = await fetch(url);
         if (!recipesResponse.ok) {
           throw new Error('레시피를 가져오는 데 실패했습니다.');
         }
-        if(!mealTypeQuery && !dishTypeQuery) {
+        if(!mealTypeQuery && !dishTypeQuery && !healthQuery) {
           return;
         }
 
@@ -56,7 +58,7 @@ export default function MealPlanMenu() {
     };
 
     fetchAPIKeys();
-  }, [mealType, dishType]);
+  }, [mealType, dishType, health]);
 
 
 
@@ -70,6 +72,9 @@ export default function MealPlanMenu() {
   const showDishType = (value)=>{
     setDishType(value)
   }
+  const showHealth = (value)=>{
+    setHealth(value)
+  }
 
   const handleMealTypeClick = (e) => {
     const value = (e.target as HTMLElement).getAttribute('value');
@@ -77,18 +82,24 @@ export default function MealPlanMenu() {
       showMealType(value);
     }
   };
-
   const handleDishTypeClick = (e)=>{
     const value = (e.target as HTMLElement).getAttribute('value');
     if (value) {
       showDishType(value)
     }
-  }
+  };
+  const handleHealthClick = (e)=>{
+    const value = (e.target as HTMLElement).getAttribute('value');
+    if (value) {
+      showHealth(value)
+    }
+  };
 
 
   return (
     <div className='px-2'>
       <div className='flex justify-center'>
+        {/* MealType으로 분류 */}
         <Menu>
           <MenuButton as={Button} variant="outline" size="md" className='mx-2'>
             MealType
@@ -102,6 +113,7 @@ export default function MealPlanMenu() {
             <MenuItem onClick={handleMealTypeClick} value="Teatime">Teatime</MenuItem>
           </MenuList>
         </Menu>
+        {/* DishType으로 분류 */}
 
         <Menu>
           <MenuButton as={Button} variant="outline" size="md" className='mx-2'>
@@ -122,10 +134,26 @@ export default function MealPlanMenu() {
             <MenuItem onClick={handleDishTypeClick} value="Sweets">Sweets</MenuItem>
           </MenuList>
         </Menu>
+        {/* health으로 분류 */}
+
+        <Menu>
+          <MenuButton as={Button} variant="outline" size="md" className='mx-2'>
+            Health
+          </MenuButton>
+          <MenuList>
+            <MenuItem onClick={handleHealthClick} value="dairy-free">Dairy-free</MenuItem>
+            <MenuItem onClick={handleHealthClick} value="gluten-free">Gluten-free</MenuItem>
+            <MenuItem onClick={handleHealthClick} value="low-sugar">Low-sugar</MenuItem>
+            <MenuItem onClick={handleHealthClick} value="tree-nut-free">Tree-nut-free</MenuItem>
+            <MenuItem onClick={handleHealthClick} value="vegan">Vegan</MenuItem>
+            <MenuItem onClick={handleHealthClick} value="vegetarian">Vegetarian</MenuItem>
+          </MenuList>
+        </Menu>
       </div>
       <div>
         <p><strong>MealType : </strong> {mealType}</p>
         <p><strong>DishType : </strong> {dishType}</p>
+        <p><strong>Health : </strong> {health}</p>
       </div>
       <div>
         {error && <p>Error: {error}</p>}

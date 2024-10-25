@@ -46,7 +46,7 @@ export default function ({label, dishType, ingredients, image}) {
             <Text py='2' fontSize='lg'>
               {ingredients}
             </Text>
-            <Text fontSize='xl'>{dishType}</Text>
+            {/* <Text fontSize='xl'>{dishType}</Text> */}
           </CardBody>
 
           <CardFooter>
