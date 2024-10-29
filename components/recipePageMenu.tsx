@@ -16,13 +16,14 @@ export default function ({
   setIsHighFiber,
   isHighProtein,
   setIsHighProtein,
-  // toggle,
-  // setToggle
+  toggle,
+  setToggle
 }) {
 
-  // const checkboxToggle = ()=>{
-  //   setToggle(!toggle)
-  // }
+  const checkboxToggle = ()=>{
+    setToggle(!toggle)
+    console.log(toggle)
+  }
 
 
 
@@ -102,32 +103,44 @@ export default function ({
       </div> */}
 
       <div>
-        <input type='checkbox' checked={isLowCarb} onChange={handleLowCarb} />
+        <input 
+          type='checkbox' 
+          checked={isLowCarb} 
+          onChange={handleLowCarb} 
+          className='m-2 form-checkbox h-4 w-4'/>
         low-carb
-        <input type='checkbox' checked={isLowFat} onChange={handleLowFat} />
+        <input 
+          type='checkbox' 
+          checked={isLowFat} 
+          onChange={handleLowFat} 
+          className='m-2 form-checkbox h-4 w-4'/>
         low-fat
         <input
           type='checkbox'
           checked={isLowSodium}
           onChange={handleLowSodium}
+          className='m-2 form-checkbox h-4 w-4'
         />
         low-sodium
         <br />
-        {/* <input type='checkbox' checked={toggle} onChange={checkboxToggle} />
-        balanced
-        <input */}
-        <input type='checkbox' checked={isBalanced} onChange={handleBalanced} />
+        <input 
+          type='checkbox' 
+          checked={isBalanced} 
+          onChange={handleBalanced} 
+          className='m-2 form-checkbox h-4 w-4'/>
         balanced
         <input
           type='checkbox'
           checked={isHighFiber}
           onChange={handleHighFiber}
+          className='m-2 form-checkbox h-4 w-4'
         />
         hight-fiber
         <input
           type='checkbox'
           checked={isHighProtein}
           onChange={handleHighProtein}
+          className='m-2 form-checkbox h-4 w-4'
         />
         high-protein
       </div>

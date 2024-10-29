@@ -15,41 +15,8 @@ export default function RecipeList() {
   const [isHighFiber, setIsHighFiber] = useState(false);
   const [isHighProtein, setIsHighProtein] = useState(false);
 
-  // const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
-
-  // let dietData = {
-  //   isLowCarb:true,
-  //   isLowFat:true,
-  //   isLowSodium:true,
-  //   isBalanced:toggle,
-  //   isHighFiber:true,
-  //   isHighProtein:true,
-  // };
-  // Object.keys(dietData).map(v=>dietData[v] ? `&diet=${v}` : ``).join('');
-
-
-
-    //////////////////////////// 첫번째 해결법
-  // 모든 영양소들 (data) 객체로 넣어버림 Object.keys는 키값만 뽑아오는거임
-  // data[v] 는 처음 요소부터 계속 확인하는것이고 ? 로 true false 값을 참고하여 쿼리로 넘겨줄지 그냥 '' 로 남길지 선택
-  // let data = {
-  //   islowcarb:true
-  // };
-  // Object.keys(data).map(v=>data[v] ? `&diet=${v}` : '').join('');
-
-  ///////////////////////////////// 두번째 해결법
-  // const [isCheckboxed, setIsCheckboxed] = useState([false,false,false,false,false,false]);
-  // const setIsLowCarb = ()=>{
-  //   setIsCheckboxed([!isCheckboxed[0], isCheckboxed[1],isCheckboxed[2],isCheckboxed[3],isCheckboxed[4],isCheckboxed[5]]);
-  //   if(isCheckboxed[0]) setDietArray([...dietArray, "IsLowCarb"]);
-  //   else setDietArray([...dietArray.filter(v=>v!=="IsLowCarb")]);
-  // }
-  // const setIsLowFat = ()=>{
-  //   setIsCheckboxed([isCheckboxed[0], !isCheckboxed[1],isCheckboxed[2],isCheckboxed[3],isCheckboxed[4],isCheckboxed[5]]);
-  //   if(isCheckboxed[1]) setDietArray([...dietArray, "IsLowFat"]);
-  //   else setDietArray([...dietArray.filter(v=>v!=="IsLowFat")]);
-  // }
 
   const [dietArray, setDietArray] = useState<string[]>([]);
 
@@ -182,12 +149,10 @@ export default function RecipeList() {
           setIsHighProtein={setIsHighProtein}
           dietArray={dietArray}
           setDietArray={setDietArray}
-          // toggle={toggle}
-          // setToggle={setToggle}
+          toggle={toggle}
+          setToggle={setToggle}
         />
       </div>
-
-
 
       <div>
       {/* 레시피 목록 표시 */}
@@ -201,6 +166,7 @@ export default function RecipeList() {
           ))}
           dishType={recipe.dishType}
           image={recipe.image}
+          tags={recipe.tags ? recipe.tags.join(', ') : ''}
         />)
       ))}
     </div>

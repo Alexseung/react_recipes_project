@@ -12,6 +12,7 @@ export default {
       },
       height: {
         'full-screen': '100vw',
+        '40rem': '40rem'
       },
       colors: {
         khaki: 'rgb(231 222 190 / <alpha-value>)',

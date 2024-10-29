@@ -150,7 +150,7 @@ export default function MealPlanMenu() {
           </MenuList>
         </Menu>
       </div>
-      <div>
+      <div className='my-10'>
         <p><strong>MealType : </strong> {mealType}</p>
         <p><strong>DishType : </strong> {dishType}</p>
         <p><strong>Health : </strong> {health}</p>
@@ -170,6 +170,10 @@ export default function MealPlanMenu() {
               ))}
               dishType={recipe.dishType}
               image={recipe.image}
+              // tags={recipe.tags ? Object.keys(recipe.tags).map(key => (
+              //   <li key={key}>{recipe.tags[key]}</li>
+              // )) : ''}
+              tags={recipe.tags ? recipe.tags.join(', ') : ''}
             />)
           ))}
         </div>

@@ -11,7 +11,7 @@ import {
   Spinner,
 } from '@chakra-ui/react';
 
-export default function ({label, dishType, ingredients, image}) {
+export default function ({label, dishType, ingredients, image, tags}) {
   const [loading, setLoading] = useState(true);
   return (
     <>
@@ -46,59 +46,13 @@ export default function ({label, dishType, ingredients, image}) {
             <Text py='2' fontSize='lg'>
               {ingredients}
             </Text>
-            {/* <Text fontSize='xl'>{dishType}</Text> */}
           </CardBody>
 
-          <CardFooter>
-            {/* <Button variant='ghost' colorScheme='blue'>
-              {dishType}
-            </Button> */}
+          <CardFooter py='2' fontSize='lg' fontWeight='medium'>
+            {tags}
           </CardFooter>
         </Stack>
       </Card>
     </>
   );
-  // return <div>
-  //     <ul>
-  //       <li>
-  //         <div className='font-bold text-2xl'>{label}</div>
-  //         <p>{dishType}</p>
-  //         <p>{ingredients}</p>
-  //         {/* <Image src={image} alt={label} width={224} height={224} loading='lazy'/> */}
-  //         <img src={image} alt={label} className='w-56' loading="lazy"/>
-  //       </li>
-  //   </ul>
-  // </div>
-}
-
-{
-  /* <Card
-  direction={{ base: 'column', sm: 'row' }}
-  overflow='hidden'
-  variant='outline'
->
-  <Image
-    objectFit='cover'
-    className='w-56'
-    src='https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60'
-    alt='Caffe Latte'
-  />
-
-  <Stack>
-    <CardBody>
-      <Heading size='md'>The perfect latte</Heading>
-
-      <Text py='2'>
-        Caffè latte is a coffee beverage of Italian origin made with espresso
-        and steamed milk.
-      </Text>
-    </CardBody>
-
-    <CardFooter>
-      <Button variant='solid' colorScheme='blue'>
-        Buy Latte
-      </Button>
-    </CardFooter>
-  </Stack>
-</Card> */
 }
