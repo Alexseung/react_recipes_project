@@ -8,24 +8,51 @@ export default function RecipeList() {
   const [error, setError] = useState(null);
   const [ingredient, setIngredient] = useState('');
   const [searchIngredient, setSearchIngredient] = useState('');
-  const [isLowCarb, setIsLowCarb] = useState(false);
-  const [isLowFat, setIsLowFat] = useState(false);
-  const [isLowSodium, setIsLowsodium] = useState(false);
-  const [isBalanced, setIsBalanced] = useState(false);
-  const [isHighFiber, setIsHighFiber] = useState(false);
-  const [isHighProtein, setIsHighProtein] = useState(false);
 
-  const [toggle, setToggle] = useState(false);
+  const [dietData, setDietData] = useState({
+    'low-carb': false,
+    'low-fat': false,
+    'low-sodium': false,
+    balanced: false,
+    'high-fiber': false,
+    'high-protein': false,
+  });
 
+  const handleCheck = (value: string) => {
+    setDietData(prev => ({
+      ...prev,
+      [value]: !prev[value],
+    }));
+  };
 
-  const [dietArray, setDietArray] = useState<string[]>([]);
+  const dietQueries = Object.keys(dietData)
+    .filter(key => dietData[key])
+    .map(key => `&diet=${key}`)
+    .join('');
+  // const [dietData, setDietData] = useState({
+  //   'low-carb': false,
+  //   'low-fat': false,
+  //   'low-sodium': false,
+  //   balanced: false,
+  //   'high-fiber': false,
+  //   'high-protein': false,
+  // });
+
+  // const handleCheck = (value: string) => {
+  //   setDietData(prev => ({
+  //     ...prev,
+  //     [value]: !prev[value], // 지금 선택된 값
+  //   }));
+  // };
+
+  // const dietQueries = Object.keys(dietData)
+  //   .filter(key => dietData[key]) // dietDate 객체의 key값이 true이면 필러링되어 들어감
+  //   .map(key => `&diet=${key}`) // 필터링된것들 map 돌려서 diet 쿼리에 넣어버림
+  //   .join('');
 
   useEffect(() => {
-
-    
     const fetchAPIKeys = async () => {
       try {
-
         ////////////////serverless 로 올린 api 정보를 활용
         // const response = await fetch(
         //   'http://localhost:3333/cloud/yoon/recipeAPI'
@@ -38,8 +65,6 @@ export default function RecipeList() {
 
         // // 서버리스로 올린 api id, key 가져옴
         // const {API_ID, API_KEY} = data.datas;
-
-
 
         ////////////////
         const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
@@ -55,7 +80,7 @@ export default function RecipeList() {
         // 작동 안된 이유 --> 해당 api에서 , 가 아닌 쿼리를 따로따로 추가해줘야 작동함
         // 배열안에 있는 요소들 다 &diet= 을 앞에 붙여서 넣어줘야해서 map으로 바꿈
         // dietArray의 값을 각각 &diet= 옵션으로 변환합니다.
-        const dietQueries = dietArray.map(diet => `&diet=${diet}`).join('');
+        // const dietQueries = dietArray.map(diet => `&diet=${diet}`).join('');
 
         // 배열 join , reduce, replace로 쉼표 지우고
 
@@ -64,11 +89,11 @@ export default function RecipeList() {
         if (!recipesResponse.ok) {
           throw new Error('레시피를 가져오는 데 실패했습니다.');
         }
-      // fetch가 처음 불릴때  ${ingredientQuery}${dietQueries} 이 값이 없기에 배열에 아무것도 없다고 판단해서 error를 넣는건데 이걸 if로 감싸서
-      // ${ingredientQuery}${dietQueries} 가 있는 상태에서만 동작하도록 만들어주기
-      // 전체를 if로 감싸지는 않았고 fetch를 실행해야하는 최소한의 조검. '검색값' 이 없으면 동작 안 하도록 만들어주었다
-      // 검색값을 나타내는 ingredientQuery 의 값이 없다면 즉, falsy라면 return으로 바로 종료되게끔
-        if(!ingredientQuery) {
+        // fetch가 처음 불릴때  ${ingredientQuery}${dietQueries} 이 값이 없기에 배열에 아무것도 없다고 판단해서 error를 넣는건데 이걸 if로 감싸서
+        // ${ingredientQuery}${dietQueries} 가 있는 상태에서만 동작하도록 만들어주기
+        // 전체를 if로 감싸지는 않았고 fetch를 실행해야하는 최소한의 조검. '검색값' 이 없으면 동작 안 하도록 만들어주었다
+        // 검색값을 나타내는 ingredientQuery 의 값이 없다면 즉, falsy라면 return으로 바로 종료되게끔
+        if (!ingredientQuery) {
           return;
         }
 
@@ -88,12 +113,7 @@ export default function RecipeList() {
     };
 
     fetchAPIKeys();
-  }, [searchIngredient, dietArray]); // 검색어 즉, searchIngredient가 변경되면 호출
-
-
-
-
-  
+  }, [searchIngredient, dietQueries]); // 검색어 즉, searchIngredient가 변경되면 호출
 
   const handleSearch = () => {
     setSearchIngredient(ingredient);
@@ -105,12 +125,6 @@ export default function RecipeList() {
       handleSearch();
     }
   };
-
-  useEffect(() => {
-    console.log('현재 dietArray:', dietArray);
-  }, [dietArray]);
-
-  const [activeBtn, setActiveBtn] = useState(0);
 
   return (
     <div className='px-2'>
@@ -132,44 +146,28 @@ export default function RecipeList() {
         </button>
       </div>
       <div className='flex justify-center'>
-        <RecipePageMenu
-          menuButton={setActiveBtn}
-          activeBtn={activeBtn}
-          isLowCarb={isLowCarb}
-          setIsLowCarb={setIsLowCarb}
-          isLowFat={isLowFat}
-          setIsLowFat={setIsLowFat}
-          isLowSodium={isLowSodium}
-          setIsLowsodium={setIsLowsodium}
-          isBalanced={isBalanced}
-          setIsBalanced={setIsBalanced}
-          isHighFiber={isHighFiber}
-          setIsHighFiber={setIsHighFiber}
-          isHighProtein={isHighProtein}
-          setIsHighProtein={setIsHighProtein}
-          dietArray={dietArray}
-          setDietArray={setDietArray}
-          toggle={toggle}
-          setToggle={setToggle}
-        />
+        <RecipePageMenu dietData={dietData} handleCheck={handleCheck} />
       </div>
 
       <div>
-      {/* 레시피 목록 표시 */}
-      { error ? <p>Error: {error}</p> : (
-      recipes.map((recipe, index) => (
-        <ShowSearchRecipe
-          key={index}
-          label={recipe.label}
-          ingredients={Object.keys(recipe.ingredients).map(key => (
-            <li key={key}>{recipe.ingredients[key].text}</li>
-          ))}
-          dishType={recipe.dishType}
-          image={recipe.image}
-          tags={recipe.tags ? recipe.tags.join(', ') : ''}
-        />)
-      ))}
-    </div>
+        {/* 레시피 목록 표시 */}
+        {error ? (
+          <p>Error: {error}</p>
+        ) : (
+          recipes.map((recipe, index) => (
+            <ShowSearchRecipe
+              key={index}
+              label={recipe.label}
+              ingredients={Object.keys(recipe.ingredients).map(key => (
+                <li key={key}>{recipe.ingredients[key].text}</li>
+              ))}
+              dishType={recipe.dishType}
+              image={recipe.image}
+              tags={recipe.tags ? recipe.tags.join(', ') : ''}
+            />
+          ))
+        )}
+      </div>
     </div>
   );
 }
