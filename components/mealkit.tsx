@@ -18,6 +18,10 @@ export default function({ handleClick }: MealkitProps) {
     { name: "Chicken Wrap", price: 14.0 },
     { name: "Mexican Taco", price: 11.25 },
     { name: "Sushi Roll", price: 22.0 },
+    { name: "Vegetable Stir Fry", price: 10.5 },
+    { name: "BBQ Ribs", price: 19.99 },
+    { name: "Quinoa Salad", price: 8.75 },
+    { name: "Seafood Paella", price: 24.0 },
   ];
 
   const handleChange = (e) => {

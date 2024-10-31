@@ -17,6 +17,13 @@ export default {
       colors: {
         khaki: 'rgb(231 222 190 / <alpha-value>)',
       },
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px'
+      }
     },
   },
   plugins: [],

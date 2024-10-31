@@ -150,10 +150,10 @@ export default function MealPlanMenu() {
           </MenuList>
         </Menu>
       </div>
-      <div className='my-10'>
-        <p><strong>MealType : </strong> {mealType}</p>
-        <p><strong>DishType : </strong> {dishType}</p>
-        <p><strong>Health : </strong> {health}</p>
+      <div className='my-10 text-center'>
+        <div className='text-lg mb-4'><strong>MealType : </strong> {mealType}</div>
+        <div className='text-lg mb-4'><strong>DishType : </strong> {dishType}</div>
+        <div className='text-lg mb-4'><strong>Health : </strong> {health}</div>
       </div>
       <div>
         {error && <p>Error: {error}</p>}
