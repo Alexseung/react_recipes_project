@@ -13,12 +13,6 @@ interface SelectedMealkit {
 export default function Home() {
   const [totalPrice, setTotalPrice] = useState(0); // 초기값 0 설정
   const [selectedkits, setselectedkits] = useState<SelectedMealkit[]>([]);
-  const input = useRef(null);
-  input.current = {
-    value1:{
-      current:null
-    }
-  }
 
   const handleClick = (price: number, name: string,) => {
     const currentAmountOfKits = selectedkits.length;
@@ -61,7 +55,6 @@ export default function Home() {
       <div className='text-2xl my-10'>Enjoy your food at home!</div>
       <VStack>
         <input
-          ref={input.current.value1}
           type='text'
           placeholder='Name'
           className='border border-black w-52 pl-1 rounded-md h-8 mb-1'

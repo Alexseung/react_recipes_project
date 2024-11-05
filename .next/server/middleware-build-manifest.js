@@ -19,15 +19,15 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/recipe": [
+    "/mealplan": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/recipe.js"
+      "static/chunks/pages/mealplan.js"
     ],
-    "/subscription": [
+    "/reviews": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/subscription.js"
+      "static/chunks/pages/reviews.js"
     ]
   },
   "ampFirstPages": []

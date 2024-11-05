@@ -9,10 +9,12 @@ export default {
     extend: {
       width: {
         'full-screen': '100vw',
+        '480': '480px'
       },
       height: {
         'full-screen': '100vw',
-        '40rem': '40rem'
+        '40rem': '40rem',
+        '424': '424px'
       },
       colors: {
         khaki: 'rgb(231 222 190 / <alpha-value>)',
