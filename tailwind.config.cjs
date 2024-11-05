@@ -20,6 +20,7 @@ export default {
         khaki: 'rgb(231 222 190 / <alpha-value>)',
       },
       screens: {
+        'phone': '360px',
         'sm': '640px',
         'md': '768px',
         'lg': '1024px',

@@ -6,7 +6,7 @@ export default function () {
   return (
     <>
       <div className='w-full-screen h-rem-32 bg-blue-200 flex m-0 p-0'>
-        <div className='sm:pl-64 border-2 w-full-screen h-full flex items-center justify-between lg:px-20 xl:px-80 font-bold'>
+        <div className='phone:pl-16 sm:pl-64 border-2 w-full-screen h-full flex items-center justify-between lg:px-20 xl:px-80 font-bold'>
           <div className='sm:text-3xl md:text-5xl lg:text-6xl  text-xl text-blue-900'>
             <div>Easy meal kits.</div>
             <div>Quality ingredients.</div>
@@ -16,7 +16,7 @@ export default function () {
             <img
               src='/lasagna.jpg'
               alt='banner-lasagna'
-              className='lg:w-480 lg:h-424 sm:hidden lg:block'
+              className='lg:w-480 lg:h-424 hidden lg:block'
             />
           </div>
         </div>
