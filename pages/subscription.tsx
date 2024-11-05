@@ -50,26 +50,35 @@ export default function Home() {
 
   const {isOpen, onClose, onOpen} = useDisclosure();
 
+  const name = useRef(null);
+  const address = useRef(null);
+  const phoneNum = useRef(null);
+  const email = useRef(null);
+
   return (
     <div className='flex-col justify-items-center'>
       <div className='text-2xl my-10'>Enjoy your food at home!</div>
       <VStack>
         <input
+          ref={name}
           type='text'
           placeholder='Name'
           className='border border-black w-52 pl-1 rounded-md h-8 mb-1'
         />
         <input
+          ref={address}
           type='text'
           placeholder='Address'
           className='border border-black w-52 pl-1 rounded-md h-8 mb-1'
         />
         <input
-          type='text'
+          ref={phoneNum}
+          type='number'
           placeholder='Phone Number'
           className='border border-black w-52 pl-1 rounded-md h-8 mb-1'
         />
         <input
+          ref={email}
           type='text'
           placeholder='Email'
           className='border border-black w-52 pl-1 rounded-md h-8 mb-1'
@@ -105,7 +114,20 @@ export default function Home() {
             <ModalHeader>Please confirm your order</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <div></div>
+              <div className='mb-10'>
+                <div className='text-lg font-semibold'>
+                Name: {name.current?.value}
+                </div>
+                <div className='text-lg font-semibold'>
+                Address: {address.current?.value}
+                </div>
+                <div className='text-lg font-semibold'>
+                Phone Number: {phoneNum.current?.value}
+                </div>
+                <div className='text-lg font-semibold'>
+                Email: {email.current?.value}
+                </div>
+              </div>
               {selectedkits.map((v, index)=> (
               <div className='flex justify-between pb-2'>
                 <div key={index} className='text-lg'>{v.name}</div>
