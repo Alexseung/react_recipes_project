@@ -12,7 +12,7 @@ export default function(){
     <>
       {/* 첫번째 */}
       <div className="flex justify-between sm:px-4 md:px-20 lg:px-28 2xl:mx-96 2xl:px-32 mt-10">
-        <div data-aos="fade-down-right" className="border bg-khaki rounded-md border-blue-300 phone:h-auto phone:h-auto w-52 h-64 text-lg p-2">
+        <div data-aos="fade-down-right" className="border bg-khaki rounded-md border-blue-300 phone:h-auto w-52 h-64 text-lg p-2">
         <div className="sm:block phone:hidden bg-blue-200 w-auto h-8 rounded-2xl">
           <p className="ml-3 font-semibold">Classic Italian Pasta</p>
         </div>
@@ -20,7 +20,7 @@ export default function(){
           The Classic Italian Pasta was absolutely delicious! The flavors were well-balanced, and the instructions were easy to follow.
         </div>
         <div className="w-56 h-64 mt-10">
-          <img src="/Classic Italian Pasta.jpg" alt="Classic Italian Pasta" className="w-56 h-64 rounded-md block phone:hidden"/>
+          <img src="/Classic Italian Pasta.jpg" alt="Classic Italian Pasta" className="w-56 h-64 rounded-md sm:block phone:hidden"/>
         </div>
         <div data-aos="fade-down-left" className="border bg-khaki rounded-md border-blue-300 phone:h-auto w-52 h-64 text-lg p-2">
         <div className="sm:block phone:hidden bg-blue-200 w-auto h-8 rounded-2xl">
@@ -41,7 +41,7 @@ export default function(){
           The Buddha Bowl was fresh and nutritious. Perfect for a light, healthy meal, and the portion was just right. I’d order this again.
         </div>
         <div className="w-56 h-64 mt-10">
-          <img src="/Korean BBQ Set.jpg" alt="Korean BBQ Set" className="w-56 h-64 rounded-md block phone:hidden"/>
+          <img src="/Korean BBQ Set.jpg" alt="Korean BBQ Set" className="w-56 h-64 rounded-md sm:block phone:hidden"/>
         </div>
         <div data-aos="fade-down-left" className="border bg-khaki rounded-md border-blue-300 phone:h-auto w-52 h-64 text-lg p-2">
         <div className="sm:block phone:hidden bg-blue-200 w-auto h-8 rounded-2xl">
@@ -62,7 +62,7 @@ export default function(){
           The Mexican Taco kit had a great variety of toppings. It was fun to put together. Would definitely get it again!
         </div>
         <div className="w-56 h-64 mt-10">
-        <img src="/Chicken Wrap.jpg" alt="Chicken Wrap" className="w-56 h-64 rounded-md block phone:hidden"/>
+        <img src="/Chicken Wrap.jpg" alt="Chicken Wrap" className="w-56 h-64 rounded-md sm:block phone:hidden"/>
         </div>
         <div data-aos="fade-down-left" className="border bg-khaki rounded-md border-blue-300 phone:h-auto w-52 h-64 text-lg p-2">
         <div className="sm:block phone:hidden bg-blue-200 w-auto h-8 rounded-2xl">
@@ -83,7 +83,7 @@ export default function(){
           The Vegetable Stir Fry was so convenient. Everything was pre-cut, making it a breeze to cook up a healthy dinner!
         </div>
         <div className="w-56 h-64 mt-10">
-        <img src="/Vegetable Stir Fry.jpg" alt="Vegetable Stir Fry" className="w-56 h-64 rounded-md block phone:hidden"/>
+        <img src="/Vegetable Stir Fry.jpg" alt="Vegetable Stir Fry" className="w-56 h-64 rounded-md sm:block phone:hidden"/>
         </div>
         <div data-aos="fade-down-left" className="border bg-khaki rounded-md border-blue-300 phone:h-auto w-52 h-64 text-lg p-2">
         <div className="sm:block phone:hidden bg-blue-200 w-auto h-8 rounded-2xl">
@@ -103,7 +103,7 @@ export default function(){
           The Quinoa Salad kit was very fresh, with vibrant colors and textures. It made for a tasty, quick, and healthy meal option.
         </div>
         <div className="w-56 h-64 mt-10">
-          <img src="/Quinoa Salad.jpg" alt="Quinoa Salad" className="w-56 h-64 rounded-md block phone:hidden"/>
+          <img src="/Quinoa Salad.jpg" alt="Quinoa Salad" className="w-56 h-64 rounded-md sm:block phone:hidden"/>
         </div>
         <div data-aos="fade-down-left" className="border bg-khaki rounded-md border-blue-300 phone:h-auto w-52 h-64 text-lg p-2">
         <div className="sm:block phone:hidden bg-blue-200 w-auto h-8 rounded-2xl">
@@ -124,7 +124,7 @@ export default function(){
           I tried the Classic Italian Pasta, and it was simply amazing. Quick and easy to prepare, and it tasted like a restaurant meal!
         </div>
         <div className="w-56 h-64 mt-10">
-          <img src="/Classic Italian Pasta.jpg" alt="Classic Italian Pasta" className="w-56 h-64 rounded-md block phone:hidden"/>
+          <img src="/Classic Italian Pasta.jpg" alt="Classic Italian Pasta" className="w-56 h-64 rounded-md sm:block phone:hidden"/>
         </div>
         <div data-aos="fade-down-left" className="border bg-khaki rounded-md border-blue-300 phone:h-auto w-52 h-64 text-lg p-2">
         <div className="sm:block phone:hidden bg-blue-200 w-auto h-8 rounded-2xl">
@@ -145,7 +145,7 @@ export default function(){
           The Buddha Bowl was so refreshing and healthy. Everything tasted super fresh, and it was a satisfying meal.
         </div>
         <div className="w-56 h-64 mt-10">
-          <img src="/Buddha Bowl.jpg" alt="Buddha Bowl" className="w-56 h-64 rounded-md block phone:hidden"/>
+          <img src="/Buddha Bowl.jpg" alt="Buddha Bowl" className="w-56 h-64 rounded-md sm:block phone:hidden"/>
         </div>
         <div data-aos="fade-down-left" className="border bg-khaki rounded-md border-blue-300 phone:h-auto w-52 h-64 text-lg p-2">
         <div className="sm:block phone:hidden bg-blue-200 w-auto h-8 rounded-2xl">

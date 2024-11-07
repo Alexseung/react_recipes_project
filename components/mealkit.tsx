@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Select } from "@chakra-ui/react";
 
 interface Mealkit {
@@ -23,16 +23,29 @@ export default function({ handleClick }: MealkitProps) {
     { name: "Quinoa Salad", price: 8.75 },
     { name: "Seafood Paella", price: 24.0 },
   ];
+  
+  const [selectedV, setSelectedV] = useState('')
 
   const handleChange = (e) => {
     const selectedKit = mealkits.find((kit) => kit.name === e.target.value);
     if (selectedKit) {
       handleClick(selectedKit.price, selectedKit.name);
+      setSelectedV('')
     }
   };
 
+
+
   return (
-    <Select placeholder="Select meal kit" onChange={handleChange} w="13rem">
+    <Select placeholder="Select meal kit" 
+      value={selectedV} 
+      onChange={
+        (e)=>{
+          setSelectedV(e.target.value);
+          handleChange(e);
+        }
+      }
+      w="13rem">
       {mealkits.map((item, index) => (
         <option value={item.name} key={index}>
           {item.name}

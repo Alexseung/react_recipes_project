@@ -4,6 +4,9 @@ import Mealkit from '../components/mealkit';
 import { Modal, ModalBody, ModalCloseButton, ModalHeader, ModalFooter, ModalContent, ModalOverlay, useDisclosure, Button } from "@chakra-ui/react";
 
 
+// onChange
+// onChange 는 바뀔때만 실행되니까 안되는거임
+
 interface SelectedMealkit {
   name: string;
   price: number;
@@ -17,17 +20,23 @@ export default function Home() {
   const handleClick = (price: number, name: string,) => {
     const currentAmountOfKits = selectedkits.length;
 
-    if (currentAmountOfKits >= 3) {
-      alert('Please choose less than 4 kits at once');
-      return;
-    }
+    // if (currentAmountOfKits >= 3) {
+    //   alert('Please choose less than 4 different kits at once');
+    //   return;
+    // }
 
     const existingKit = selectedkits.find((v) => v.name === name);
+
     if (!existingKit) {
+      if (currentAmountOfKits >= 3) {
+        alert('Please choose less than 4 different kits at once');
+        return;
+      }
       setselectedkits([...selectedkits, { name, price, count: 1 }]);
     } else {
       const updatedKits = selectedkits.map((v) => {
         if (v.name === name) {
+          console.log(v.count);
           return { ...v, count: v.count + 1 };
         }
         return v;
