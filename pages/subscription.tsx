@@ -57,12 +57,21 @@ export default function Home() {
   };
 
 
-  const {isOpen, onClose, onOpen} = useDisclosure();
+  const {isOpen, onClose} = useDisclosure();
+
+
 
   const name = useRef(null);
   const address = useRef(null);
   const phoneNum = useRef(null);
   const email = useRef(null);
+
+  const onOpen = ()=>{
+    if (!name.current?.value) alert('Please fill in your name');
+    else if (!address.current?.value) alert('Please fill in your address');
+    else if (!phoneNum.current?.value) alert('Please fill in your phone number');
+    else if (!email.current?.value) alert('Please fill in your email');
+  }
 
   return (
     <div className='flex-col justify-items-center'>
@@ -124,16 +133,16 @@ export default function Home() {
             <ModalCloseButton />
             <ModalBody>
               <div className='mb-10'>
-                <div className='text-lg font-semibold'>
+                <div className='text-lg font-light'>
                 Name: {name.current?.value}
                 </div>
-                <div className='text-lg font-semibold'>
+                <div className='text-lg font-light'>
                 Address: {address.current?.value}
                 </div>
-                <div className='text-lg font-semibold'>
+                <div className='text-lg font-light'>
                 Phone Number: {phoneNum.current?.value}
                 </div>
-                <div className='text-lg font-semibold'>
+                <div className='text-lg font-light'>
                 Email: {email.current?.value}
                 </div>
               </div>
