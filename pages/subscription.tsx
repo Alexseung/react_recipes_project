@@ -153,7 +153,7 @@ export default function Home() {
               {selectedkits.map((v, index)=> (
               <div className='flex justify-between pb-2'>
                 <div key={index} className='text-lg'>{v.name} ({v.count})</div>
-                <div key={index} className='text-lg font-medium border-b-2'>$ {v.price}</div>
+                <div key={index} className='text-lg font-medium border-b-2'>$ {v.price * v.count}</div>
               </div>
             ))}</ModalBody>
             <div className='flex justify-between mx-4 pb-5 border-t-2 border-black'>
