@@ -10,7 +10,7 @@ export default function(){
                 <p className="text-lg mb-4 font-medium">Easy Recipe</p>
                 <p className="hidden sm:block mb-10 font-normal">Explore simple recipes that anyone can whip up in no time</p>
             </div>
-            <div className="w-96 max-sm:h-60 h-80 rounded-xl mx-8">~
+            <div className="w-96 max-sm:h-60 h-80 rounded-xl mx-8">
                 <img src="/nutrition.jpg" alt="mainBodyCard-1" className="rounded-xl mb-4"/>
                 <p className="text-lg mb-4 font-medium">Balanced Diet</p>
                 <p className="hidden sm:block mb-10 font-normal">Explore simple recipes that anyone can whip up in no time</p>
