@@ -57,7 +57,7 @@ export default function Home() {
   };
 
 
-  const {isOpen, onClose} = useDisclosure();
+  const {isOpen, onClose, onOpen} = useDisclosure();
 
 
 
@@ -66,12 +66,16 @@ export default function Home() {
   const phoneNum = useRef(null);
   const email = useRef(null);
 
-  const onOpen = ()=>{
+  const handleOpen = () => {
     if (!name.current?.value) alert('Please fill in your name');
     else if (!address.current?.value) alert('Please fill in your address');
     else if (!phoneNum.current?.value) alert('Please fill in your phone number');
     else if (!email.current?.value) alert('Please fill in your email');
-  }
+    else {
+      onOpen();
+    }
+  };
+  
 
   return (
     <div className='flex-col justify-items-center'>
@@ -122,7 +126,7 @@ export default function Home() {
           ))}
         </div>
         <div className='text-lg'>Total Price: {totalPrice.toFixed(2)} USD</div>
-        <button className='bg-khaki p-2 rounded-md' onClick={onOpen}>Submit</button>
+        <button className='bg-khaki p-2 rounded-md' onClick={handleOpen}>Submit</button>
       </VStack>
 
 
@@ -148,7 +152,7 @@ export default function Home() {
               </div>
               {selectedkits.map((v, index)=> (
               <div className='flex justify-between pb-2'>
-                <div key={index} className='text-lg'>{v.name}</div>
+                <div key={index} className='text-lg'>{v.name} ({v.count})</div>
                 <div key={index} className='text-lg font-medium border-b-2'>$ {v.price}</div>
               </div>
             ))}</ModalBody>
