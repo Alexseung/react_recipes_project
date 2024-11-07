@@ -16,7 +16,7 @@ export default function () {
       <span onClick={navigate('/subscription')} className='phone:px-2 cursor-pointer sm:px-6'>
         Subscription
       </span>
-      <span onClick={navigate('/mealplan')} className='phone:px-2 cursor-pointer sm:px-6'>
+      <span onClick={navigate('/meal-plan')} className='phone:px-2 cursor-pointer sm:px-6'>
         Meal plan
       </span>
       <span onClick={navigate('/reviews')} className='phone:px-2 cursor-pointer sm:px-6'>

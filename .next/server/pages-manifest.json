@@ -2,5 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/subscription": "pages/subscription.js"
+  "/contact-us": "pages/contact-us.js",
+  "/privacy-policy": "pages/privacy-policy.js",
+  "/faq": "pages/faq.js",
+  "/": "pages/index.js"
 }
