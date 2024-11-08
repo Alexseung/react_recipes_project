@@ -27,20 +27,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/contact-us": [
+    "/meal-plan": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/contact-us.js"
+      "static/chunks/pages/meal-plan.js"
     ],
-    "/faq": [
+    "/recipe": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/faq.js"
+      "static/chunks/pages/recipe.js"
     ],
-    "/privacy-policy": [
+    "/subscription": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/privacy-policy.js"
+      "static/chunks/pages/subscription.js"
     ]
   },
   "ampFirstPages": []

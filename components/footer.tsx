@@ -43,8 +43,8 @@ export default function() {
                 <div className='w-60 h-full pt-4'>
                     <VStack className="font-semibold">
                         <div className="text-lg">Stay Connected!</div>
-                        <div className="hover:text-khaki cursor-pointer">Instagram</div>
-                        <div className="hover:text-khaki cursor-pointer">Facebook</div>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferred" className="hover:text-khaki cursor-pointer">Instagram</a>
+                        <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F%3Flocale%3Dko_KR" target="_blank" rel="noopener noreferred" className="hover:text-khaki cursor-pointer">Facebook</a>
                     </VStack>
                 </div>
             </HStack>
@@ -54,8 +54,9 @@ export default function() {
                     <div className='w-60 h-full pt-4'>
                         <VStack className="font-semibold">
                             <div className="text-lg">Stay Connected!</div>
-                            <div className="hover:text-khaki cursor-pointer">Instagram</div>
-                            <div className="hover:text-khaki cursor-pointer">Facebook</div>
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferred" className="hover:text-khaki cursor-pointer">Instagram</a>
+                            <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F%3Flocale%3Dko_KR" target="_blank" rel="noopener noreferred" className="hover:text-khaki cursor-pointer">Facebook</a>
+                            
                         </VStack>
                     </div>
                 </HStack>
