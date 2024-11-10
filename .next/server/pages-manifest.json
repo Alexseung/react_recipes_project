@@ -2,8 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/subscription": "pages/subscription.js",
-  "/recipe": "pages/recipe.js",
-  "/meal-plan": "pages/meal-plan.js"
+  "/reviews": "pages/reviews.js",
+  "/meal-plan": "pages/meal-plan.js",
+  "/": "pages/index.js"
 }
